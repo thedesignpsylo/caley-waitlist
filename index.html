@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caley | One life. Finally.</title>
+<meta name="description" content="Everything on your mind, turned into a week that actually happens. Join the waitlist.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAFA;
+  --ink:#121212;
+  --orange:#FF4400;
+  --ink-60:rgba(18,18,18,.6);
+  --ink-30:rgba(18,18,18,.3);
+  --ink-08:rgba(18,18,18,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter Tight',-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--orange);color:var(--bg)}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 28px;
+  background:linear-gradient(to bottom, var(--bg) 60%, transparent);
+}
+.wordmark{
+  font-family:'Fredoka',sans-serif;font-weight:600;
+  font-size:22px;letter-spacing:-.5px;color:var(--ink);
+  text-decoration:none;
+}
+.wordmark em{font-style:normal;color:var(--orange)}
+.nav-cta{
+  font-size:13px;font-weight:500;color:var(--ink);
+  text-decoration:none;
+  padding:8px 18px;border:1px solid var(--ink);border-radius:999px;
+  transition:all .25s ease;
+}
+.nav-cta:hover{background:var(--ink);color:var(--bg)}
+
+/* ---------- hero ---------- */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:120px 24px 80px;position:relative;
+}
+.merge{
+  position:relative;width:120px;height:48px;margin-bottom:56px;
+}
+.dot{
+  position:absolute;top:50%;width:28px;height:28px;border-radius:50%;
+  transform:translateY(-50%);
+}
+.dot-work{left:0;background:var(--ink);animation:driftL 5s ease-in-out infinite}
+.dot-life{right:0;border:2px solid var(--ink);background:transparent;animation:driftR 5s ease-in-out infinite}
+.dot-one{
+  left:50%;transform:translate(-50%,-50%) scale(0);
+  background:var(--orange);
+  animation:become 5s ease-in-out infinite;
+}
+@keyframes driftL{
+  0%,15%{left:0;opacity:1}
+  45%,55%{left:calc(50% - 14px);opacity:1}
+  60%,80%{left:calc(50% - 14px);opacity:0}
+  100%{left:0;opacity:1}
+}
+@keyframes driftR{
+  0%,15%{right:0;opacity:1}
+  45%,55%{right:calc(50% - 14px);opacity:1}
+  60%,80%{right:calc(50% - 14px);opacity:0}
+  100%{right:0;opacity:1}
+}
+@keyframes become{
+  0%,50%{transform:translate(-50%,-50%) scale(0)}
+  58%,82%{transform:translate(-50%,-50%) scale(1)}
+  92%,100%{transform:translate(-50%,-50%) scale(0)}
+}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-60);
+  margin-bottom:28px;
+}
+h1{
+  font-size:clamp(44px,9vw,96px);
+  font-weight:700;letter-spacing:-.04em;line-height:1.02;
+  max-width:820px;
+}
+h1 .strike{position:relative;white-space:nowrap}
+h1 .strike::after{
+  content:"";position:absolute;left:-2%;right:-2%;top:54%;
+  height:.08em;background:var(--orange);border-radius:2px;
+  transform:rotate(-1.5deg);
+}
+.hero-sub{
+  margin-top:32px;font-size:clamp(16px,2.2vw,19px);
+  color:var(--ink-60);max-width:440px;line-height:1.65;font-weight:400;
+}
+.hero-cta{margin-top:48px}
+.scroll-hint{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ink-30);
+}
+
+/* ---------- form ---------- */
+.form{
+  display:flex;gap:0;max-width:420px;width:100%;
+  border:1px solid var(--ink);border-radius:999px;overflow:hidden;
+  background:var(--bg);
+  transition:box-shadow .25s ease;
+}
+.form:focus-within{box-shadow:0 0 0 3px rgba(255,68,0,.25)}
+.form input{
+  flex:1;border:none;outline:none;background:transparent;
+  padding:16px 22px;font-size:15px;font-family:inherit;color:var(--ink);
+  min-width:0;
+}
+.form input::placeholder{color:var(--ink-30)}
+.form button{
+  border:none;background:var(--ink);color:var(--bg);
+  font-family:inherit;font-size:14px;font-weight:600;
+  padding:0 26px;cursor:pointer;white-space:nowrap;
+  transition:background .2s ease;
+}
+.form button:hover{background:var(--orange)}
+.form-done{
+  display:none;max-width:420px;width:100%;text-align:center;
+  padding:18px 24px;border-radius:18px;
+  background:var(--ink);color:var(--bg);
+  font-size:15px;font-weight:500;line-height:1.6;
+  opacity:0;transform:translateY(8px) scale(.97);
+}
+.form-done.show{display:block;animation:doneIn .5s cubic-bezier(.2,.9,.3,1.1) forwards}
+@keyframes doneIn{to{opacity:1;transform:translateY(0) scale(1)}}
+.form-done .check{
+  display:inline-flex;width:22px;height:22px;border-radius:50%;
+  background:var(--orange);align-items:center;justify-content:center;
+  margin-right:8px;vertical-align:-5px;
+}
+.form-done em{font-style:normal;color:var(--orange);font-weight:600}
+.form-done .sub{display:block;font-size:12px;color:rgba(250,250,250,.45);font-weight:400;margin-top:4px}
+
+/* ---------- sections ---------- */
+section{padding:140px 24px;display:flex;flex-direction:column;align-items:center}
+.sec-label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:48px;text-align:center;
+}
+
+/* truth section */
+.truth{max-width:680px;text-align:center}
+.truth h2{
+  font-size:clamp(28px,4.6vw,44px);font-weight:600;
+  letter-spacing:-.03em;line-height:1.25;
+}
+.truth h2 .dim{color:var(--ink-30)}
+.truth p{
+  margin-top:28px;font-size:17px;color:var(--ink-60);line-height:1.75;
+  max-width:480px;margin-left:auto;margin-right:auto;
+}
+
+/* ---------- bento preview ---------- */
+.moment{padding:140px 24px;display:flex;flex-direction:column;align-items:center}
+.bento{
+  display:grid;width:100%;max-width:980px;gap:14px;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:auto auto;
+}
+.tile{
+  background:var(--ink);color:var(--bg);border-radius:24px;
+  padding:32px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.tile-phone{grid-column:span 2;grid-row:span 2;padding:0;justify-content:flex-start;align-items:center;min-height:560px}
+.tile-mic{grid-column:span 2;min-height:270px;align-items:center;justify-content:center;text-align:center}
+.tile-s{grid-column:span 1;min-height:200px}
+.tile-w{grid-column:1 / -1;min-height:160px}
+.tile-label{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--orange);
+  margin-bottom:12px;
+}
+.tile-text{font-size:17px;font-weight:500;line-height:1.5;letter-spacing:-.01em}
+.tile-text .dim{color:rgba(250,250,250,.4)}
+
+/* phone mockup */
+.phone-frame{
+  width:250px;margin-top:48px;
+  border:3px solid rgba(250,250,250,.18);border-radius:42px;
+  border-bottom:none;
+  background:#1a1a1a;
+  padding:10px 10px 0;height:430px;position:relative;overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,.6);
+  -webkit-mask-image:linear-gradient(to bottom, #000 58%, transparent 96%);
+  mask-image:linear-gradient(to bottom, #000 58%, transparent 96%);
+}
+.phone-tile-caption{
+  text-align:center;font-size:13px;color:rgba(250,250,250,.45);line-height:1.65;
+  padding:18px 30px 28px;margin-top:auto;
+}
+.phone-tile-caption strong{color:var(--bg);font-weight:500}
+.phone-island{
+  width:78px;height:22px;background:#000;border-radius:999px;
+  margin:8px auto 14px;position:relative;z-index:3;
+}
+.phone-time{
+  text-align:center;font-size:34px;font-weight:600;letter-spacing:-.02em;
+  color:rgba(250,250,250,.9);margin-bottom:2px;position:relative;z-index:2;
+}
+.phone-date{
+  text-align:center;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(250,250,250,.4);
+  margin-bottom:22px;position:relative;z-index:2;
+}
+.notif-stack{position:relative;height:300px;z-index:2}
+.p-notif{
+  position:absolute;left:0;right:0;top:0;
+  background:var(--bg);color:var(--ink);
+  border-radius:16px;padding:13px 14px;
+  display:flex;gap:11px;align-items:flex-start;
+  box-shadow:0 14px 44px rgba(0,0,0,.45);
+  opacity:0;transform:translateY(-26px) scale(.96);
+}
+.p-notif.show{animation:dropIn .55s cubic-bezier(.2,.9,.3,1.2) forwards}
+.p-notif.settle{animation:settleDown .5s ease forwards}
+.p-notif.gone{animation:fadeAway .45s ease forwards}
+@keyframes dropIn{
+  from{opacity:0;transform:translateY(-26px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes settleDown{
+  from{opacity:1;transform:translateY(0) scale(1)}
+  to{opacity:.45;transform:translateY(74px) scale(.93)}
+}
+@keyframes fadeAway{
+  from{opacity:.45;transform:translateY(74px) scale(.93)}
+  to{opacity:0;transform:translateY(112px) scale(.9)}
+}
+.pn-dot{
+  width:30px;height:30px;border-radius:9px;background:var(--orange);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-family:'Fredoka',sans-serif;font-weight:600;font-size:14px;color:var(--bg);
+}
+.pn-body{flex:1;min-width:0}
+.pn-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
+.pn-app{font-size:10.5px;font-weight:600}
+.pn-time{font-family:'IBM Plex Mono',monospace;font-size:8.5px;color:var(--ink-30)}
+.pn-text{font-size:11.5px;line-height:1.45;color:var(--ink)}
+.pn-text strong{font-weight:600}
+.phone-caption{
+  position:absolute;bottom:22px;left:0;right:0;text-align:center;
+  font-size:12px;color:rgba(250,250,250,.4);line-height:1.6;
+  padding:0 26px;z-index:2;
+}
+.phone-caption strong{color:var(--bg);font-weight:500}
+
+/* siri mic tile */
+.mic-stage{position:relative;width:96px;height:96px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.siri-glow{
+  position:absolute;inset:-26px;border-radius:50%;
+  background:conic-gradient(from 0deg, var(--orange), rgba(255,68,0,.06), var(--orange), rgba(255,68,0,.15), var(--orange));
+  filter:blur(22px);opacity:.85;
+  animation:siriSpin 4.5s linear infinite, siriBreath 2.6s ease-in-out infinite;
+}
+@keyframes siriSpin{to{transform:rotate(360deg)}}
+@keyframes siriBreath{0%,100%{scale:1;opacity:.7}50%{scale:1.18;opacity:1}}
+.mic-core{
+  position:relative;z-index:2;width:72px;height:72px;border-radius:50%;
+  background:var(--ink);border:1px solid rgba(250,250,250,.16);
+  display:flex;align-items:center;justify-content:center;
+}
+.mic-tile-cap{font-size:15px;font-weight:500;line-height:1.55;max-width:280px}
+.mic-tile-cap .dim{color:rgba(250,250,250,.4)}
+
+/* scroll hint arrows */
+.scroll-arrow{
+  display:inline-block;color:var(--orange);
+  animation:nudge 1.8s ease-in-out infinite;
+}
+.scroll-arrow.l{animation-delay:.2s}
+@keyframes nudge{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(3px);opacity:1}}
+
+@media (max-width:760px){
+  .bento{grid-template-columns:1fr 1fr}
+  .tile-phone{grid-column:span 2;grid-row:auto}
+  .tile-mic{grid-column:span 2}
+  .tile-s{grid-column:span 1}
+  .tile-w{grid-column:span 2}
+}
+@media (max-width:480px){
+  .tile-s{grid-column:span 2}
+}
+
+/* how — three words */
+.how{max-width:760px;width:100%}
+.how-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  width:100%;padding:36px 0;border-bottom:1px solid var(--ink-08);
+  gap:24px;
+}
+.how-row:first-of-type{border-top:1px solid var(--ink-08)}
+.how-word{
+  font-size:clamp(32px,5.5vw,52px);font-weight:700;letter-spacing:-.03em;
+  flex-shrink:0;
+}
+.how-word sup{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:400;
+  color:var(--orange);vertical-align:super;margin-right:10px;letter-spacing:0;
+}
+.how-desc{
+  font-size:14px;color:var(--ink-60);line-height:1.6;max-width:300px;
+  text-align:right;
+}
+
+/* curiosity close */
+.close-sec{text-align:center;padding-bottom:160px}
+.close-sec h2{
+  font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-.035em;
+  line-height:1.15;max-width:640px;
+}
+.close-sec h2 em{font-style:normal;color:var(--orange)}
+.close-sec .count{
+  margin-top:24px;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-30);
+}
+.close-sec .hero-cta{margin-top:44px;display:flex;justify-content:center;width:100%}
+
+/* footer */
+footer{
+  padding:48px 28px;display:flex;justify-content:space-between;
+  align-items:center;border-top:1px solid var(--ink-08);
+  flex-wrap:wrap;gap:16px;
+}
+footer .wordmark{font-size:18px}
+footer p{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-30);
+}
+
+/* reveal on scroll */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+@media (max-width:560px){
+  .how-row{flex-direction:column;align-items:flex-start;gap:10px}
+  .how-desc{text-align:left;max-width:100%}
+  section{padding:100px 20px}
+  .form button{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="#">C<em>a</em>ley</a>
+  <a class="nav-cta" href="#join">Join the waitlist</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="merge" aria-hidden="true">
+    <div class="dot dot-work"></div>
+    <div class="dot dot-life"></div>
+    <div class="dot dot-one"></div>
+  </div>
+  <p class="eyebrow">Waitlist · Edition 001</p>
+  <h1>Work-life <span class="strike">balance</span>.</h1>
+  <p class="hero-sub">Balance assumes two lives competing for one of you. You only have one life. Caley plans all of it.</p>
+  <div class="hero-cta">
+    <form class="form" id="form-hero" onsubmit="return submitWaitlist(event,'form-hero')">
+      <input type="email" required placeholder="you@onelife.com" aria-label="Email address">
+      <button type="submit">Join</button>
+    </form>
+    <div class="form-done" id="done-hero"><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FAFAFA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>You're on the list. <em>Seat secured.</em><span class="sub">We'll write to you when your edition opens.</span></div>
+  </div>
+  <p class="scroll-hint"><span class="scroll-arrow l">&darr;</span>&nbsp;&nbsp;Scroll&nbsp;&nbsp;<span class="scroll-arrow">&darr;</span></p>
+</header>
+
+<!-- TRUTH -->
+<section>
+  <p class="sec-label rv">The mess</p>
+  <div class="truth rv">
+    <h2>Twenty things on your mind. <span class="dim">Three will happen.</span> The rest are lost in WhatsApp, notes, reminders, and your head.</h2>
+    <p>Work has calendars, deadlines, and people who hold you to them. Your life has good intentions. That's not a fair fight.</p>
+  </div>
+</section>
+
+<!-- THE PREVIEW — BENTO -->
+<section class="moment">
+  <p class="sec-label rv">A small preview</p>
+  <div class="bento">
+
+    <!-- iPhone mockup with looping notifications -->
+    <div class="tile tile-phone rv">
+      <div class="phone-frame">
+        <div class="phone-island"></div>
+        <div class="phone-time">3:20</div>
+        <div class="phone-date" id="phone-date">Friday, June 12</div>
+        <div class="notif-stack" id="nstack"></div>
+      </div>
+      <p class="phone-tile-caption">Not a reminder. Not an alert. <strong>Something that knows your day.</strong></p>
+    </div>
+
+    <!-- Siri-style mic -->
+    <div class="tile tile-mic rv">
+      <div class="mic-stage">
+        <div class="siri-glow"></div>
+        <div class="mic-core">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FAFAFA" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 013 3v5a3 3 0 01-6 0V5a3 3 0 013-3zM19 10a7 7 0 01-14 0M12 17v3M9 20h6"/></svg>
+        </div>
+      </div>
+      <p class="mic-tile-cap">Just speak. <span class="dim">Caley listens, understands, and plans while you move on.</span></p>
+    </div>
+
+    <!-- Statement tiles -->
+    <div class="tile tile-s rv">
+      <p class="tile-label">Equal weight</p>
+      <p class="tile-text">A date night and a deadline. <span class="dim">Same priority engine.</span></p>
+    </div>
+
+    <div class="tile tile-s rv">
+      <p class="tile-label">Zero format</p>
+      <p class="tile-text">Half-formed thoughts <span class="dim">become whole plans.</span></p>
+    </div>
+
+    <div class="tile tile-w rv">
+      <p class="tile-label">One source of truth</p>
+      <p class="tile-text">Your work calendar, your personal life, your intentions. <span class="dim">Finally in the same room.</span></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW -->
+<section>
+  <p class="sec-label rv">Three verbs</p>
+  <div class="how">
+    <div class="how-row rv">
+      <div class="how-word"><sup>01</sup>Dump</div>
+      <p class="how-desc">Say everything. Messy, half-formed, out of order. That's the point.</p>
+    </div>
+    <div class="how-row rv">
+      <div class="how-word"><sup>02</sup>Trust</div>
+      <p class="how-desc">Caley reads your week, both calendars, and turns intent into a plan.</p>
+    </div>
+    <div class="how-row rv">
+      <div class="how-word"><sup>03</sup>Live</div>
+      <p class="how-desc">Everything scheduled, reminded, done. The rest stays out of your head.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close-sec" id="join">
+  <h2 class="rv">The first app for your <em>one</em> life.</h2>
+  <p class="count rv">Early access · limited seats</p>
+  <div class="hero-cta rv">
+    <form class="form" id="form-close" onsubmit="return submitWaitlist(event,'form-close')">
+      <input type="email" required placeholder="you@onelife.com" aria-label="Email address">
+      <button type="submit">Join the waitlist</button>
+    </form>
+    <div class="form-done" id="done-close"><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FAFAFA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>You're on the list. <em>Seat secured.</em><span class="sub">We'll write to you when your edition opens.</span></div>
+  </div>
+</section>
+
+<footer>
+  <a class="wordmark" href="#">C<em>a</em>ley</a>
+  <p>One life · MMXXVI</p>
+</footer>
+
+<script>
+/* ---- Caley waitlist — Supabase ---- */
+var SUPABASE_URL = 'https://rnhpgavpmcddmmiylxzm.supabase.co';
+var SUPABASE_KEY = 'sb_publishable_fg-PyV_DUx7Q0rpMtVinHw_faivMK9d';
+
+function submitWaitlist(e, formId){
+  e.preventDefault();
+  var form = document.getElementById(formId);
+  var btn = form.querySelector('button');
+  var input = form.querySelector('input[type="email"]');
+  var email = input.value.trim();
+  var doneId = formId.replace('form','done');
+
+  btn.disabled = true;
+  var originalLabel = btn.textContent;
+  btn.textContent = '...';
+
+  fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': SUPABASE_KEY,
+      'Authorization': 'Bearer ' + SUPABASE_KEY,
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ email: email })
+  })
+  .then(function(res){
+    if(res.ok || res.status === 201 || res.status === 409){
+      // 409 = duplicate email, still a success for the user
+      form.style.display = 'none';
+      document.getElementById(doneId).classList.add('show');
+    } else {
+      throw new Error('Request failed: ' + res.status);
+    }
+  })
+  .catch(function(err){
+    console.error(err);
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+    alert("Something went wrong. Try again in a moment.");
+  });
+
+  return false;
+}
+
+/* Scroll reveals */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:.25});
+document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+/* ---- Looping notification drop ---- */
+var NOTIFS = [
+  { time:'6:50 PM', text:'Leaving for Priya\u2019s party in 30 minutes. <strong>You haven\u2019t called your mom yet.</strong>' },
+  { time:'9:12 AM', text:'Back-to-back meetings till 4. <strong>Moved your gym block to 6:30 PM.</strong>' },
+  { time:'Sun 8:00 PM', text:'Car service is due this week. <strong>Saturday morning is free. Want me to block it?</strong>' }
+];
+
+var stack = document.getElementById('nstack');
+var ni = 0;
+var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function notifEl(n){
+  var d = document.createElement('div');
+  d.className = 'p-notif';
+  d.innerHTML =
+    '<div class="pn-dot">C</div>' +
+    '<div class="pn-body">' +
+      '<div class="pn-top"><span class="pn-app">Caley</span><span class="pn-time">' + n.time + '</span></div>' +
+      '<p class="pn-text">' + n.text + '</p>' +
+    '</div>';
+  return d;
+}
+
+function cycle(){
+  var current = notifEl(NOTIFS[ni % NOTIFS.length]);
+  stack.appendChild(current);
+  requestAnimationFrame(function(){ current.classList.add('show'); });
+
+  setTimeout(function(){
+    current.classList.remove('show');
+    current.classList.add('settle');
+  }, 2600);
+
+  setTimeout(function(){
+    current.classList.remove('settle');
+    current.classList.add('gone');
+    setTimeout(function(){ current.remove(); }, 500);
+  }, 4400);
+
+  ni++;
+  setTimeout(cycle, 3000);
+}
+
+/* Dynamic lock-screen date */
+var pd = document.getElementById('phone-date');
+if(pd){
+  var now = new Date();
+  var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  pd.textContent = days[now.getDay()] + ', ' + months[now.getMonth()] + ' ' + now.getDate();
+}
+
+if(stack){
+  if(prefersReduced){
+    var still = notifEl(NOTIFS[0]);
+    still.style.opacity = '1';
+    still.style.transform = 'none';
+    stack.appendChild(still);
+  } else {
+    setTimeout(cycle, 900);
+  }
+}
+</script>
+</body>
+</html>
